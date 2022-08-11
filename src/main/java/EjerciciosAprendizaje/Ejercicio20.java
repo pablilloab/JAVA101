@@ -12,9 +12,7 @@ import java.util.Scanner;
 
 public class Ejercicio20 {
     public static void main(String[] args) {
-        Scanner read = new Scanner(System.in);
-        int tamanoMatriz = read.nextInt();
-        int[][] matriz = new int[tamanoMatriz][tamanoMatriz];
+        int[][] matriz = new int[3][3];
 
         cargarMatriz(matriz);
         if (esMagica(matriz)){
@@ -48,15 +46,24 @@ public class Ejercicio20 {
         }
     }
     public static boolean esMagica (int[][] matriz) {
-        boolean magica = true;
-        int flagDiagonalSecundaria = matriz[0].length;
+
+        int flagDiagonalSecundaria = matriz[0].length - 1;
         int valorComparable = sumaFilaColumna(matriz[0]);
-        for (int fila = 1; fila < matriz[0].length;fila++){
+        int sumaDiagonalP = 0, sumaDiagonalS = 0;
+        for (int fila = 0; fila < matriz[0].length;fila++){
             for (int columna = 0; columna < matriz[0].length; columna ++){
-                //TODO buscar y sumar por diagonales
+                if (fila == columna) {
+                    sumaDiagonalP += matriz[fila][columna];
+                    sumaDiagonalS += matriz[fila][flagDiagonalSecundaria];
+                    flagDiagonalSecundaria--;
+                }
             }
         }
-
+        if (sumaFilaColumna(matriz[1]) == valorComparable && sumaFilaColumna(matriz[2]) == valorComparable &&  sumaDiagonalP == valorComparable && sumaDiagonalS ==valorComparable ){
+            return true;
+        }else{
+            return false;
+        }
 
     }
 
@@ -67,4 +74,5 @@ public class Ejercicio20 {
         }
         return suma;
     }
-}
+
+ }
