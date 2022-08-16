@@ -14,8 +14,8 @@ public class Ejercicio13 {
         System.out.println("Ingrese la altura de la escalera");
         int alturaEscalera = read.nextInt();
 
-        for (int i = 1; i <= alturaEscalera; i++){
-            for (int j = 1; j < i; j++){
+        for (int i = 0; i <= alturaEscalera; i++){
+            for (int j = 1; j <= i; j++){
                 System.out.print(j);
             }
             System.out.println("");
