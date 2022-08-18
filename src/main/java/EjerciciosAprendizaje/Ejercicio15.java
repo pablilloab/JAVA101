@@ -10,6 +10,7 @@ public class Ejercicio15 {
         int[] enteros = new int[100];
         completarVector(enteros);
         mostrarDescendente(enteros);
+
     }
 
     public static void completarVector(int[] enteros) {
